@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Campus Notice Board</title>
+<style>
+  body { margin: 0; font-family: system-ui, sans-serif; background: #f1f5f9; color: #0f172a; }
+  main { max-width: 640px; margin: 0 auto; padding: 32px 16px; }
+  .version { font-size: 4rem; font-weight: 800; text-align: center; color: #fff;
+             background: linear-gradient(135deg, #2563eb, #7c3aed); border-radius: 16px; padding: 24px; }
+  .pod { text-align: center; margin: 12px 0 28px; color: #475569; }
+  .notice { background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,.1); display: flex; justify-content: space-between; }
+  .tag { background: #e0e7ff; color: #3730a3; border-radius: 999px; padding: 2px 12px; font-size: .8rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Campus Notice Board</h1>
+  <div class="version">{{ version }}</div>
+  <p class="pod">Served by pod: <b>{{ pod }}</b></p>
+  {% for n in notices %}
+  <div class="notice"><span>{{ n.title }}</span><span class="tag">{{ n.tag }}</span></div>
+  {% endfor %}
+</main>
+</body>
+</html>
